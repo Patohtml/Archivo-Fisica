@@ -1,55 +1,61 @@
 import matplotlib.pyplot as plt
 
-repeticion=int(input("Cuantas veces queres que se repita el codigo: "))
+
+print("----------------------")
+print("Bienvenido! ヾ(•ω•`)o")
+print("----------------------")
+repeticion=int(input("- Cuantas veces queres que se repita el codigo?: "))
 lista=[]
 x=[]
 y=[]
 for i in range(0,repeticion):
     def variables():
-        vel= float(input("ingrese la velocidad en m/s: "))
+        vel= float(input("- Ingrese la velocidad en m/s: "))
         while vel<0:
-          vel= float(input("noooo negativo noo ingrese la velocidad devuelta en m/s y positivo: "))
+          vel= float(input("No se puede ingresar la velocidad en negativo, ingrese de nuevo la velocidad (+): "))
           if vel>0:
             break
-        cabal=float(input("ingrese la distancia del caballo hasta el auto(en metros): "))
+        cabal=float(input("- Ingrese la distancia del Objeto A a el Objeto B (en metros): "))
         while cabal<0:
-          cabal=float(input("noooooo negativo nooo ingrese la distancia del caballo hasta el auto devuelta (en metros y positivo): "))
+          cabal=float(input("No se puede ingresar la velocidad en negativo, ingrese de nuevo la velocidad (+): "))
           if cabal>0:
             break
-        fren= float(input("ingrese a que velocidad el auto desacelera(expresalo en negativo): "))
-        return calculos(vel, cabal, fren)
+        fren= float(input("- ingrese a que velocidad el Objeto B desacelera (-): "))
+        return calculos(vel, cabal, fren) # es una palabra reservada de python que marca el final de la funcion y devuelve los resultados obtenidos
     def calculos(vel, cabal, fren):
         while fren>0:
-            fren= float(input("NO se puede la desaceleracion numero positivo ponelo en negativo: "))
+            fren= float(input("No se puede ingresar la deseceleracion en Positivo, vuelve a ingresarla en Negativo (-): "))
             if fren<0:
                 break
         calc= 0-vel
         tie= calc/fren
         dist= 0+vel*tie+0.5*fren*(tie*tie)
         if dist>cabal:
-            print("Te tragaste a un caballo de frente pobre de el :(")
+            print("El objeto A ha colisionado con el Objeto B.")
             c = vel + (1/2)*(0-vel)
             c2 = cabal/c
             acel = (0-vel)/c2
-            print("nececitabas frenar a ", acel, "m/s2 para no chocarte")
-            print("lo chocaste en ",tie, "segundos")
+            print("El objeto B necesitaba frenar a ", acel, "m/s2 para no colisionar.")
+            print("Colisionaron en ",tie, "segundos")
             lista.append(acel)
             lista.append(tie)
 
         elif dist<=cabal:
             dist2=cabal-dist
-            print("te quedaste a",dist2, "metros de chocar al caballo")
-            print("Frenaste en ",tie, "segundos")
+            print("Los objetos quedaron a",dist2, "metros de colisionar.")
+            print("Desaceleraron en ",tie, "segundos")
             lista.append(dist2)
             lista.append(tie)
         y.append(tie)
         x.append(dist)
     variables()
-print("Los resultados fueron",lista)
+print("-----------------------------")
+print("Los resultados fueron... Taraaan! ---> ",lista, "(Distacia, Tiempo")
+print("-----------------------------")
 width=0.1
-plt.bar(y,x, width=width, color="red")
-plt.scatter(y,x, color="blue")
-plt.plot(y,x, color="green")
+plt.bar(y,x, width=width, color="red") #representa la distacia.
+plt.scatter(y,x, color="blue") #marca el punto exacto donde cruza tiempo y distancia.
+plt.plot(y,x, color="green") #marca como varia el tiempo.
 plt.ylabel("Distancia")
 plt.xlabel("Tiempo")
 plt.title("Distancia sobre tiempo")
