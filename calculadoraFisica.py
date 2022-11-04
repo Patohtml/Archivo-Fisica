@@ -1,10 +1,11 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #Pyplot es un módulo Matplotlib que propone varias funciones sencillas para añadir elementos tales como líneas, imágenes o textos a los ejes de un gráfico.
 
 
 print("----------------------")
 print("Bienvenido! ヾ(•ω•`)o")
 print("----------------------")
 repeticion=int(input("- Cuantas veces queres que se repita el codigo?: "))
+print("----------------------")
 lista=[]
 x=[]
 y=[]
@@ -50,7 +51,7 @@ for i in range(0,repeticion):
         x.append(dist)
     variables()
 print("-----------------------------")
-print("Los resultados fueron... Taraaan! ---> ",lista, "(Distacia, Tiempo")
+print("Cargando resultados...")
 print("-----------------------------")
 width=0.1
 plt.bar(y,x, width=width, color="red") #representa la distacia.
@@ -58,5 +59,5 @@ plt.scatter(y,x, color="blue") #marca el punto exacto donde cruza tiempo y dista
 plt.plot(y,x, color="green") #marca como varia el tiempo.
 plt.ylabel("Distancia")
 plt.xlabel("Tiempo")
-plt.title("Distancia sobre tiempo")
+plt.title("Distancia sobre tiempo (⊙ˍ⊙)")
 plt.show()
